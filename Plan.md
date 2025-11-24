@@ -1,9 +1,6 @@
-# Feature: Data Entry
+# Features
 
-Formular entries : 
-    - In the entry form the weight must be entered. 
-
-# Feature: Line Graph
+# Line Graph
 
 We should show the user some statistics about the devlopment over time as line charts.
 
