@@ -1,5 +1,4 @@
 // src/dashboard/dashboard.js
-
 // Hash route -> view file
 const ROUTES = {
   dashboard: "./src/dashboard/dashboard.html",
