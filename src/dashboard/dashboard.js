@@ -1,8 +1,10 @@
+// src/dashboard/dashboard.js
+// Hash route -> view file
 const ROUTES = {
-  dashboard: "./dashboard/dashboard.html",
-  formular: "./formular/formular.html",
-  tables: "./tables/tables.html",
-}
+  dashboard: "./src/dashboard/dashboard.html",
+  formular: "./src/formular/formular.html",
+  tables: "./src/tables/tables.html",
+};
 
 const DEFAULT_ROUTE = "dashboard";
 const VIEW_ID = "view";
@@ -67,7 +69,7 @@ function resolvePath(url, baseDir) {
 
 function rewriteRelativeAssets(container, baseDir) {
   const elements = container.querySelectorAll(
-    "link[href], script[src], img[src], source[src], iframe[src]"
+    "link[href], script[src], img[src], source[src], iframe[src]",
   );
 
   elements.forEach((element) => {
@@ -109,8 +111,7 @@ function loadExternalScript(src, type) {
     if (type) script.type = type;
 
     script.onload = resolve;
-    script.onerror = () =>
-      reject(new Error(`Failed to load script: ${src}`));
+    script.onerror = () => reject(new Error(`Failed to load script: ${src}`));
 
     document.body.appendChild(script);
   });
@@ -121,11 +122,8 @@ function executeExternalScripts(container) {
 
   return Promise.all(
     scripts.map((script) =>
-      loadExternalScript(
-        script.getAttribute("src")?.trim(),
-        script.type
-      )
-    )
+      loadExternalScript(script.getAttribute("src")?.trim(), script.type),
+    ),
   );
 }
 
@@ -155,7 +153,7 @@ function updateSidebar(route) {
   document
     .querySelectorAll(`#${SIDEBAR_ID} .nav-link`)
     .forEach((link) =>
-      link.classList.toggle("active", link.dataset.page === route)
+      link.classList.toggle("active", link.dataset.page === route),
     );
 }
 
